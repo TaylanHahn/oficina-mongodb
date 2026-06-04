@@ -15,10 +15,13 @@
         "mongodb.mongodb-vscode"
       ],
       "settings": {
-        "workbench.colorTheme": "Default Dark+"
+        "workbench.colorTheme": "Default Dark+",
+        "files.associations": {
+          "*.mongodb.js": "mongodb"
+        }
       }
     }
   },
-  "postCreateCommand": "sudo npm install -g mongosh",
+  "postCreateCommand": "npm install -g mongosh",
   "postStartCommand": "bash -c 'while ! mongosh --quiet --eval \"1\" > /dev/null 2>&1; do sleep 2; done && mongosh scripts/seed.js'"
 }
