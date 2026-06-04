@@ -1,7 +1,10 @@
 {
-  "name": "Laboratorio MongoDB",
+  "name": "Oficina MongoDB",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
     "ghcr.io/devcontainers/features/mongodb:1": {
       "version": "latest"
     }
@@ -16,5 +19,5 @@
       }
     }
   },
-  "postCreateCommand": "mongosh scripts/seed.js"
+  "postCreateCommand": "npm install -g mongosh && mongosh scripts/seed.js"
 }
