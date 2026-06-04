@@ -16,5 +16,5 @@
       }
     }
   },
-  "postCreateCommand": "mongosh --eval 'print(\"MongoDB pronto para uso!\")'"
+  "postCreateCommand": "mongosh scripts/seed.js"
 }
