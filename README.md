@@ -8,56 +8,69 @@ Não é necessário instalar nada no seu computador!
 2. Clique no botão verde **"<> Code"** no topo desta página.
 3. Selecione a aba **Codespaces**.
 4. Clique em **"Create codespace on main"**.
-5. Aguarde o VS Code carregar no seu navegador (pode levar cerca de 2 minutos).
+5. Aguarde o VS Code carregar no seu navegador — pode levar **2 a 3 minutos** enquanto o MongoDB é instalado e o banco é populado automaticamente.
 
 ## 🔌 2. Conectando ao Banco
-Nosso ambiente já subiu um servidor MongoDB exclusivo para você, já populado com dados!
-1. No menu lateral esquerdo do VS Code, clique no **ícone de folhinha** (MongoDB).
-2. Clique em **Add Connection**.
-3. Deixe tudo como está e clique em **Connect** (ele vai conectar automaticamente em `localhost:27017`).
+
+O servidor MongoDB já estará rodando exclusivo para você, com os dados carregados!
+
+1. No menu lateral esquerdo do VS Code, clique no **ícone de folhinha verde** (MongoDB).
+2. Clique em **Connect**.
+3. Na barra que aparecer no topo do VS Code, digite a string abaixo e pressione **Enter**:
+   ```
+   mongodb://localhost:27017
+   ```
+4. Pronto! Você verá o banco `oficina_mongodb` aparecer na barra lateral.
 
 ## 💻 3. Como rodar os testes (Playground)
-1. No VS Code, crie um arquivo novo chamado `testes.mongodb.js`
-2. Na primeira linha do arquivo, escreva `use('oficina_mongodb');`
-3. O VS Code vai reconhecer automaticamente que este é um ambiente de testes do Mongo.
-4. Cole os comandos abaixo (um de cada vez) e clique no botão **▶️ Play** (Run Playground) que aparecerá no topo direito do arquivo ou acima do código!
+
+O arquivo `testes.mongodb.js` já está pronto no repositório!
+
+1. Clique nele no explorador de arquivos (barra lateral esquerda).
+2. Um botão **▶️ Run Playground** aparecerá no topo direito do arquivo.
+3. Clique nele para executar e ver os resultados!
 
 ---
 
 ### 🧪 Roteiro de Testes
 
-**Teste 1: Trazendo todos os livros**
+Abra o arquivo `testes.mongodb.js` e substitua o conteúdo pelos comandos abaixo, um de cada vez.
 
-````js
+**Teste 1: Trazendo todos os livros**
+```js
+use('oficina_mongodb');
 db.livros.find()
-````
+```
 
 **Teste 2: Buscando por um autor específico**
-
-````js
+```js
+use('oficina_mongodb');
 db.livros.find({ autor: "Machado de Assis" })
-````
+```
 
-**Teste 3: O Poder do NoSQL (Buscando dentro de listas)**
-
-````js
+**Teste 3: O Poder do NoSQL — buscando dentro de listas**
+```js
+use('oficina_mongodb');
 db.livros.find({ generos: "Ficção Científica" })
-````
+```
 
-**Teste 4: Operadores de comparação (Livros publicados antes do século XX - < 1900)***
-````js
+**Teste 4: Operadores de comparação — livros publicados antes de 1900**
+```js
+use('oficina_mongodb');
 db.livros.find({ ano: { $lt: 1900 } })
-````
+```
 
-**Teste 5: Adicionando colunas dinamicamente (Schemaless)**
-````js
+**Teste 5: Adicionando campos dinamicamente (Schemaless)**
+```js
+use('oficina_mongodb');
 db.livros.updateOne(
-  { titulo: "O Alienista" }, 
+  { titulo: "O Alienista" },
   { $set: { paginas: 112 } }
 )
-````
+```
 
-**Depois, rode novamente para ver a diferença!**
-````js
+Depois, rode o comando abaixo para ver o campo novo:
+```js
+use('oficina_mongodb');
 db.livros.find({ titulo: "O Alienista" })
-````
+```
