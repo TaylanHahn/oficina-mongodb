@@ -1,0 +1,20 @@
+{
+  "name": "Laboratorio MongoDB",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/mongodb:1": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mongodb.mongodb-vscode"
+      ],
+      "settings": {
+        "workbench.colorTheme": "Default Dark+"
+      }
+    }
+  },
+  "postCreateCommand": "mongosh --eval 'print(\"MongoDB pronto para uso!\")'"
+}
