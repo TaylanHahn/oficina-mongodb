@@ -1,5 +1,5 @@
 {
-  "name": "Oficina MongoDB",
+  "name": "Laboratorio MongoDB",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
@@ -19,5 +19,6 @@
       }
     }
   },
-  "postCreateCommand": "npm install -g mongosh && mongosh scripts/seed.js"
+  "postCreateCommand": "sudo npm install -g mongosh",
+  "postStartCommand": "bash -c 'while ! mongosh --quiet --eval \"1\" > /dev/null 2>&1; do sleep 2; done && mongosh scripts/seed.js'"
 }
