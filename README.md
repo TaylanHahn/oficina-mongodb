@@ -24,53 +24,22 @@ O servidor MongoDB já estará rodando exclusivo para você, com os dados carreg
 
 ## 💻 3. Como rodar os testes (Playground)
 
-O arquivo `testes.mongodb.js` já está pronto no repositório!
+Os arquivos de teste já estão prontos na pasta **`testes/`**!
 
-1. Clique nele no explorador de arquivos (barra lateral esquerda).
-2. Um botão **▶️ Run Playground** aparecerá no topo direito do arquivo.
-3. Clique nele para executar e ver os resultados!
+1. No explorador de arquivos (barra lateral esquerda), abra a pasta `testes`.
+2. Clique no arquivo do teste que deseja rodar.
+3. Um botão **▶️ Run Playground** aparecerá no topo direito do arquivo — clique nele.
+4. O resultado aparecerá em um painel ao lado. Leia o comentário no topo de cada arquivo para entender o que está sendo feito!
 
 ---
 
 ### 🧪 Roteiro de Testes
 
-Abra o arquivo `testes.mongodb.js` e substitua o conteúdo pelos comandos abaixo, um de cada vez.
-
-**Teste 1: Trazendo todos os livros**
-```js
-use('oficina_mongodb');
-db.livros.find()
-```
-
-**Teste 2: Buscando por um autor específico**
-```js
-use('oficina_mongodb');
-db.livros.find({ autor: "Machado de Assis" })
-```
-
-**Teste 3: O Poder do NoSQL — buscando dentro de listas**
-```js
-use('oficina_mongodb');
-db.livros.find({ generos: "Ficção Científica" })
-```
-
-**Teste 4: Operadores de comparação — livros publicados antes de 1900**
-```js
-use('oficina_mongodb');
-db.livros.find({ ano: { $lt: 1900 } })
-```
-
-**Teste 5: Adicionando campos dinamicamente (Schemaless)**
-```js
-use('oficina_mongodb');
-db.livros.updateOne(
-  { titulo: "O Alienista" },
-  { $set: { paginas: 112 } }
-)
-```
-
-Depois, rode o comando abaixo para ver o campo novo:
-```js
-use('oficina_mongodb');
-db.livros.find({ titulo: "O Alienista" })
-```
+| Arquivo | O que faz |
+|---|---|
+| `01_todos_os_livros.mongodb.js` | Busca todos os documentos da coleção |
+| `02_busca_por_autor.mongodb.js` | Filtra por um campo específico |
+| `03_busca_dentro_de_lista.mongodb.js` | Busca dentro de um campo que é uma lista |
+| `04_operadores_de_comparacao.mongodb.js` | Usa operadores como `$lt` para comparar valores |
+| `05a_adicionar_campo.mongodb.js` | Adiciona um campo novo em um documento (Schemaless) |
+| `05b_verificar_campo_novo.mongodb.js` | Confirma o resultado do teste anterior |
