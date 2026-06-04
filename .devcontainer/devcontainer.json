@@ -2,14 +2,6 @@
   "name": "Laboratorio MongoDB",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 
-  // A feature já instala o MongoDB Server + mongosh + inicia o serviço
-  "features": {
-    "ghcr.io/devcontainers/features/mongodb:1": {
-      "version": "latest"
-    }
-  },
-
-  // Expõe a porta para a extensão do VS Code conectar automaticamente
   "forwardPorts": [27017],
 
   "customizations": {
@@ -21,14 +13,11 @@
         "workbench.colorTheme": "Default Dark+",
         "files.associations": {
           "*.mongodb.js": "mongodb"
-        },
-        // Conexão pré-configurada: os alunos não precisam digitar nada
-        "mdb.connectionSaving.hideOptionToChooseWhereToSaveNewConnections": true,
-        "mdb.showMongoDBConnectionExplorer": true
+        }
       }
     }
   },
 
-  // Roda UMA VEZ após criar o container: aguarda o MongoDB iniciar e popula o banco
-  "postCreateCommand": "bash -c 'echo Aguardando MongoDB iniciar... && until mongosh --quiet --eval \"1\" > /dev/null 2>&1; do sleep 2; done && echo MongoDB pronto! && mongosh scripts/seed.js && echo Banco populado com sucesso!'"
+  // Instala MongoDB 7 + mongosh do zero, inicia o serviço e popula o banco
+  "postCreateCommand": "bash .devcontainer/setup.sh"
 }
