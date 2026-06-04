@@ -17,9 +17,10 @@ Nosso ambiente já subiu um servidor MongoDB exclusivo para você, já populado 
 3. Deixe tudo como está e clique em **Connect** (ele vai conectar automaticamente em `localhost:27017`).
 
 ## 💻 3. Como rodar os testes (Playground)
-1. No VS Code, crie um arquivo novo chamado `testes.mongodb.js`.
-2. O VS Code vai reconhecer automaticamente que este é um ambiente de testes do Mongo.
-3. Cole os comandos abaixo (um de cada vez) e clique no botão **▶️ Play** (Run Playground) que aparecerá no topo direito do arquivo ou acima do código!
+1. No VS Code, crie um arquivo novo chamado `testes.mongodb.js`
+2. Na primeira linha do arquivo, escreva `use('oficina_mongodb');`
+3. O VS Code vai reconhecer automaticamente que este é um ambiente de testes do Mongo.
+4. Cole os comandos abaixo (um de cada vez) e clique no botão **▶️ Play** (Run Playground) que aparecerá no topo direito do arquivo ou acima do código!
 
 ---
 
@@ -34,7 +35,7 @@ db.livros.find()
 **Teste 2: Buscando por um autor específico**
 
 ````js
-db.livros.find({ autor: "George Orwell" })
+db.livros.find({ autor: "Machado de Assis" })
 ````
 
 **Teste 3: O Poder do NoSQL (Buscando dentro de listas)**
@@ -43,15 +44,20 @@ db.livros.find({ autor: "George Orwell" })
 db.livros.find({ generos: "Ficção Científica" })
 ````
 
-**Teste 4: Adicionando colunas dinamicamente (Schemaless)**
+**Teste 4: Operadores de comparação (Livros publicados antes do século XX - < 1900)***
+````js
+db.livros.find({ ano: { $lt: 1900 } })
+````
+
+**Teste 5: Adicionando colunas dinamicamente (Schemaless)**
 ````js
 db.livros.updateOne(
-  { titulo: "1984" }, 
-  { $set: { paginas: 328 } }
+  { titulo: "O Alienista" }, 
+  { $set: { paginas: 112 } }
 )
 ````
 
 **Depois, rode novamente para ver a diferença!**
 ````js
-db.livros.find() 
+db.livros.find({ titulo: "O Alienista" })
 ````
