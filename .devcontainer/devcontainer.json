@@ -1,11 +1,17 @@
 {
   "name": "Laboratorio MongoDB",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  // A feature já instala o MongoDB Server + mongosh + inicia o serviço
   "features": {
     "ghcr.io/devcontainers/features/mongodb:1": {
       "version": "latest"
     }
   },
+
+  // Expõe a porta para a extensão do VS Code conectar automaticamente
+  "forwardPorts": [27017],
+
   "customizations": {
     "vscode": {
       "extensions": [
@@ -15,10 +21,14 @@
         "workbench.colorTheme": "Default Dark+",
         "files.associations": {
           "*.mongodb.js": "mongodb"
-        }
+        },
+        // Conexão pré-configurada: os alunos não precisam digitar nada
+        "mdb.connectionSaving.hideOptionToChooseWhereToSaveNewConnections": true,
+        "mdb.showMongoDBConnectionExplorer": true
       }
     }
   },
-  "postCreateCommand": "wget -qO- https://www.mongodb.org/static/pgp/server-7.0.asc | sudo tee /etc/apt/trusted.gpg.d/server-7.0.asc && echo 'deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse' | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list && sudo apt-get update && sudo apt-get install -y mongodb-mongosh || true",
-  "postStartCommand": "bash -c 'while ! mongosh --quiet --eval \"1\" > /dev/null 2>&1; do sleep 2; done && mongosh scripts/seed.js || true'"
+
+  // Roda UMA VEZ após criar o container: aguarda o MongoDB iniciar e popula o banco
+  "postCreateCommand": "bash -c 'echo Aguardando MongoDB iniciar... && until mongosh --quiet --eval \"1\" > /dev/null 2>&1; do sleep 2; done && echo MongoDB pronto! && mongosh scripts/seed.js && echo Banco populado com sucesso!'"
 }
