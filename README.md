@@ -26,25 +26,32 @@ Nosso ambiente já subiu um servidor MongoDB exclusivo para você, já populado 
 ### 🧪 Roteiro de Testes
 
 **Teste 1: Trazendo todos os livros**
-\`\`\`javascript
+
+````js
 db.livros.find()
-\`\`\`
+````
 
 **Teste 2: Buscando por um autor específico**
-\`\`\`javascript
+
+````js
 db.livros.find({ autor: "George Orwell" })
-\`\`\`
+````
 
 **Teste 3: O Poder do NoSQL (Buscando dentro de listas)**
-\`\`\`javascript
+
+````js
 db.livros.find({ generos: "Ficção Científica" })
-\`\`\`
+````
 
 **Teste 4: Adicionando colunas dinamicamente (Schemaless)**
-\`\`\`javascript
+````js
 db.livros.updateOne(
   { titulo: "1984" }, 
   { $set: { paginas: 328 } }
 )
-// Depois, rode db.livros.find() novamente para ver a diferença!
-\`\`\`
+````
+
+**Depois, rode novamente para ver a diferença!**
+````js
+db.livros.find() 
+````
