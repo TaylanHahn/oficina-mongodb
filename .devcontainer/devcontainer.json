@@ -2,9 +2,6 @@
   "name": "Laboratorio MongoDB",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "lts"
-    },
     "ghcr.io/devcontainers/features/mongodb:1": {
       "version": "latest"
     }
@@ -22,6 +19,6 @@
       }
     }
   },
-  "postCreateCommand": "npm install -g mongosh",
-  "postStartCommand": "bash -c 'while ! mongosh --quiet --eval \"1\" > /dev/null 2>&1; do sleep 2; done && mongosh scripts/seed.js'"
+  "postCreateCommand": "wget -qO- https://www.mongodb.org/static/pgp/server-7.0.asc | sudo tee /etc/apt/trusted.gpg.d/server-7.0.asc && echo 'deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse' | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list && sudo apt-get update && sudo apt-get install -y mongodb-mongosh || true",
+  "postStartCommand": "bash -c 'while ! mongosh --quiet --eval \"1\" > /dev/null 2>&1; do sleep 2; done && mongosh scripts/seed.js || true'"
 }
