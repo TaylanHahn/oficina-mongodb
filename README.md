@@ -1,7 +1,7 @@
 # 🍃 Oficina de MongoDB: Do Zero ao NoSQL
 
 ## Bem-vindos! 
-Hoje vamos colocar a mão na massa e conhecer o poder do banco de dados NoSQL mais famoso do mundo.
+## Hoje vamos colocar a mão na massa e conhecer o poder do banco de dados NoSQL mais famoso do mundo.
 
 ### 🚀 1. Como acessar o laboratório
 Não é necessário instalar nada no seu computador!
