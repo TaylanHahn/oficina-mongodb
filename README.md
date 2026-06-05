@@ -1,8 +1,8 @@
 # 🍃 Oficina de MongoDB: Do Zero ao NoSQL
 
-Bem-vindos! Hoje vamos colocar a mão na massa e conhecer o poder do banco de dados NoSQL mais famoso do mundo.
+## Bem-vindos! Hoje vamos colocar a mão na massa e conhecer o poder do banco de dados NoSQL mais famoso do mundo.
 
-## 🚀 1. Como acessar o laboratório
+### 🚀 1. Como acessar o laboratório
 Não é necessário instalar nada no seu computador!
 1. Faça login na sua conta do GitHub.
 2. Clique no botão verde **"<> Code"** no topo desta página.
@@ -10,7 +10,7 @@ Não é necessário instalar nada no seu computador!
 4. Clique em **"Create codespace on main"**.
 5. Aguarde o VS Code carregar no seu navegador — pode levar **2 a 3 minutos** enquanto o MongoDB é instalado e o banco é populado automaticamente.
 
-## 🔌 2. Conectando ao Banco
+### 🔌 2. Conectando ao Banco
 
 O servidor MongoDB já estará rodando exclusivo para você, com os dados carregados!
 
@@ -22,7 +22,7 @@ O servidor MongoDB já estará rodando exclusivo para você, com os dados carreg
    ```
 4. Pronto! Você verá o banco `oficina_mongodb` aparecer na barra lateral.
 
-## 💻 3. Como rodar os testes (Playground)
+### 💻 3. Como rodar os testes (Playground)
 
 Os arquivos de teste já estão prontos na pasta **`testes/`**!
 
