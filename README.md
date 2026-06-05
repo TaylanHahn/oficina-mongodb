@@ -29,7 +29,9 @@ Os arquivos de teste já estão prontos na pasta **`testes/`**!
 1. No explorador de arquivos (barra lateral esquerda), abra a pasta `testes`.
 2. Clique no arquivo do teste que deseja rodar.
 3. Um botão **▶️ Run Playground** aparecerá no topo direito do arquivo — clique nele.
-4. O resultado aparecerá em um painel ao lado. Leia o comentário no topo de cada arquivo para entender o que está sendo feito!
+4. Aprecerá no canto inferior um pop-up, clique no botão de cor AZUL.
+5. Na tela do MongoDB irá aparecer `Create Playground`, clique nesse botão e aguarde.
+6. O resultado aparecerá em um painel ao lado. Leia o comentário no topo de cada arquivo para entender o que está sendo feito!
 
 ---
 
