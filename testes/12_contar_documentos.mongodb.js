@@ -4,7 +4,7 @@ use('oficina_mongodb');
 // countDocuments() retorna quantos documentos batem com o filtro.
 // Útil para saber quantos livros existem por gênero, por exemplo.
 
-// Quantos são de "Literatura Brasileira"?
+// Quantos são do gênero "Romance"?
 db.livros.countDocuments({ generos: "Romance" })
 
 // Quantos livros existem no total?
