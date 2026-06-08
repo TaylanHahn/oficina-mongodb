@@ -4,11 +4,11 @@ use('oficina_mongodb');
 // countDocuments() retorna quantos documentos batem com o filtro.
 // Útil para saber quantos livros existem por gênero, por exemplo.
 
-// Quantos livros existem no total?
-db.livros.countDocuments()
-
 // Quantos são de "Literatura Brasileira"?
-db.livros.countDocuments({ generos: "Literatura Brasileira" })
+db.livros.countDocuments({ generos: "Romance" })
+
+// Quantos livros existem no total?
+// db.livros.countDocuments()
 
 // Quantos foram publicados a partir do século XX?
-db.livros.countDocuments({ ano: { $gte: 1900 } })
+// db.livros.countDocuments({ ano: { $gte: 1900 } })
