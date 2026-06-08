@@ -45,3 +45,10 @@ Os arquivos de teste já estão prontos na pasta **`testes/`**!
 | `04_operadores_de_comparacao.mongodb.js` | Usa operadores como `$lt` para comparar valores |
 | `05a_adicionar_campo.mongodb.js` | Adiciona um campo novo em um documento (Schemaless) |
 | `05b_verificar_campo_novo.mongodb.js` | Confirma o resultado do teste anterior |
+| `06_inserir_um_livro.mongodb.js` | Insere um único documento com `insertOne()` |
+| `07_inserir_varios_livros.mongodb.js` | Insere vários documentos de uma vez com `insertMany()` |
+| `08_deletar_um_livro.mongodb.js` | Remove o primeiro documento que corresponde ao filtro com `deleteOne()` |
+| `09_deletar_varios_livros.mongodb.js` | Remove todos os documentos que correspondem ao filtro com `deleteMany()` |
+| `10_adicionar_item_na_lista.mongodb.js` | Adiciona um item a um array usando `$push` |
+| `11_remover_item_da_lista.mongodb.js` | Remove um item de um array usando `$pull` |
+| `12_contar_documentos.mongodb.js` | Conta documentos da coleção com ou sem filtro usando `countDocuments()` |
